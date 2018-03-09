@@ -106,8 +106,10 @@ function OpenVehicleSpawner(airport)
 				}, vehicle.SpawnPoint.Heading, function(vehicle)
 					TaskWarpPedIntoVehicle(playerPed, vehicle, -1)
 				end)
-			else
 
+				TriggerEvent('esx_pilotjob:startDeliveryJob')
+			else
+				ESX.ShowNotification(_U('too_many_planes'))
 			end
 
 		end,

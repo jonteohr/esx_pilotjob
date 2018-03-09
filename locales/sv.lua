@@ -1,7 +1,7 @@
 Locales ['sv'] = {
-	['clothes_hint']					= 'tryck ~INPUT_CONTEXT~ för att byta om',
-	['vehicle_hint']					= 'tryck ~INPUT_CONTEXT~ för att ta ut flygplan',
-	['job_hint']						= 'tryck ~INPUT_CONTEXT~ för att öppna jobbmenyn',
+	['clothes_hint']					= 'tryck ~INPUT_CONTEXT~ för att ~y~byta om',
+	['vehicle_hint']					= 'tryck ~INPUT_CONTEXT~ för att ~y~ta ut flygplan',
+	['job_hint']						= 'tryck ~INPUT_CONTEXT~ för att ~y~öppna jobbmenyn',
 	['create_invoice']					= 'skapa faktura',
 	['jobmenu_title']					= 'jobbmeny',
 	['invoice_amount']					= 'faktureringssumma',
@@ -10,4 +10,5 @@ Locales ['sv'] = {
 	['civ_clothes']						= 'civila kläder',
 	['pilot_uniform']					= 'pilotuniform',
 	['clothes_menu']					= 'omklädningsrum',
+	['too_many_planes']					= 'det är ett ~r~fordon~w~ i vägen!',
 }
