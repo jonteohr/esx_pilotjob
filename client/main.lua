@@ -64,6 +64,7 @@ AddEventHandler('esx_pilotjob:hasExitedMarker', function()
 	ESX.UI.Menu.CloseAll()
 end)
 
+RegisterNetEvent('esx_pilotjob:startDeliveryJob')
 AddEventHandler('esx_pilotjob:startDeliveryJob', function()
 	-- TODO
 end)
