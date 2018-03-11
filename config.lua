@@ -36,7 +36,12 @@ Config.Vehicles = {
 		Marker	= 1,
 		SpawnPoint = {
 			Pos		= { x = -1359.840, y = -2719.073, z = 13.944 },
-			Heading	= 90.0
+			Heading	= 330.166
+		},
+		Deleter	= {
+			Pos		= { x = -1359.840, y = -2719.073, z = 12.944 },
+			Colour	= { r = 255, g = 0, b = 0 },
+			Size	= { x = 5.0, y = 5.0, z = 2.0 }
 		},
 	},
 }

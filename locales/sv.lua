@@ -13,4 +13,5 @@ Locales ['sv'] = {
 	['too_many_planes']					= 'det är ett ~r~fordon~w~ i vägen!',
 	['no_nil_invoice']					= 'ogiltig ~y~summa',
 	['no_player_nearby']				= 'det finns ingen ~b~spelare~w~ i närheten!',
+	['deleter_hint']					= 'tryck ~INPUT_CONTEXT~ för att ~y~lämna in ~b~planet.',
 }

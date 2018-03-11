@@ -53,6 +53,10 @@ AddEventHandler('esx_pilotjob:hasEnteredMarker', function(marker)
 		CurrentAction = 'job_menu'
 		CurrentActionMsg = _U('job_hint')
 	end
+	if marker == 'deleter' then
+		CurrentAction = 'vehicle_deleter'
+		CurrentActionMsg = _U('deleter_hint')
+	end
 
 	CurrentActionData = {}
 end)
@@ -109,10 +113,13 @@ Citizen.CreateThread(function()
 				end
 			end
 
-			-- Vehicle spawner (garage)
+			-- Vehicles (garage)
 			for k,v in pairs(Config.Vehicles) do
 				if (GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < Config.DrawDistance) then
 					DrawMarker(v.Marker, v.Pos.x, v.Pos.y, v.Pos.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, v.Size.x, v.Size.y, v.Size.z, v.Colour.r, v.Colour.g, v.Colour.b, 100, false, true, 2, false, false, false, false)
+				end
+				if (GetDistanceBetweenCoords(coords, v.Deleter.Pos.x, v.Deleter.Pos.y, v.Deleter.Pos.z, true) < Config.DrawDistance) then
+					DrawMarker(v.Marker, v.Deleter.Pos.x, v.Deleter.Pos.y, v.Deleter.Pos.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, v.Deleter.Size.x, v.Deleter.Size.y, v.Deleter.Size.z, v.Deleter.Colour.r, v.Deleter.Colour.g, v.Deleter.Colour.b, 100, false, true, 2, false, false, false, false)
 				end
 			end
 
@@ -125,11 +132,13 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
 
-		local coords		= GetEntityCoords(GetPlayerPed(-1))
-		local isInMarker	= false
-		local jobMarker		= false
-		local clothesMarker	= false
-		local vehicleMarker	= false
+		local playerPed			= GetPlayerPed(-1)
+		local coords			= GetEntityCoords(playerPed)
+		local isInMarker		= false
+		local jobMarker			= false
+		local clothesMarker		= false
+		local vehicleSpawner	= false
+		local vehicleDeleter	= false
 
 		if PlayerData.job ~= nil and PlayerData.job.name == 'pilot' then
 			for k,v in pairs(Config.Airports) do
@@ -151,8 +160,19 @@ Citizen.CreateThread(function()
 			for k,v in pairs(Config.Vehicles) do
 				if (GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < v.Size.x) then
 					isInMarker = true
-					vehicleMarker = true
+					vehicleSpawner = true
 					CurrentActionData = {airport = k}
+				end
+
+				if (GetDistanceBetweenCoords(coords, v.Deleter.Pos.x, v.Deleter.Pos.y, v.Deleter.Pos.z, true) < v.Deleter.Size.x) then
+					if IsPedInAnyPlane(playerPed) then
+						local plane = GetVehiclePedIsIn(playerPed, false)
+						if DoesEntityExist(plane) then
+							isInMarker = true
+							vehicleDeleter = true
+							CurrentActionData = {airport = k, vehicle = plane}
+						end
+					end
 				end
 			end
 
@@ -163,8 +183,10 @@ Citizen.CreateThread(function()
 					TriggerEvent('esx_pilotjob:hasEnteredMarker', 'job')
 				elseif clothesMarker then
 					TriggerEvent('esx_pilotjob:hasEnteredMarker', 'clothes')
-				elseif vehicleMarker then
+				elseif vehicleSpawner then
 					TriggerEvent('esx_pilotjob:hasEnteredMarker', 'vehicle')
+				elseif vehicleDeleter then
+					TriggerEvent('esx_pilotjob:hasEnteredMarker', 'deleter')
 				end
 			end
 
@@ -193,6 +215,8 @@ Citizen.CreateThread(function()
 					OpenVehicleSpawner(CurrentActionData.airport)
 				elseif CurrentAction == 'clothes_menu' then
 					OpenClothesMenu()
+				elseif CurrentAction == 'vehicle_deleter' then
+					ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
 				end
 			end
 		end
