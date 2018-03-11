@@ -10,5 +10,7 @@ Locales ['en'] = {
 	['civ_clothes']						= 'civilian clothes',
 	['pilot_uniform']					= 'pilotuniform',
 	['clothes_menu']					= 'locker room',
-	['too_many_planes']					= 'there\'s a ~r~vehicle~w~ in the way!'
+	['too_many_planes']					= 'there\'s a ~r~vehicle~w~ in the way!',
+	['no_nil_invoice']					= 'invalid ~y~amount',
+	['no_player_nearby']				= 'there are no ~b~players~w~ nearby!',
 }

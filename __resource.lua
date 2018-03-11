@@ -5,7 +5,6 @@ version '1.0.0'
 
 client_scripts {
 	'@es_extended/locale.lua',
-	'client/menus.lua',
 	'client/misc.lua',
 	'client/main.lua',
 	'locales/en.lua',

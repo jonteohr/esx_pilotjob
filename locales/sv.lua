@@ -11,4 +11,6 @@ Locales ['sv'] = {
 	['pilot_uniform']					= 'pilotuniform',
 	['clothes_menu']					= 'omklädningsrum',
 	['too_many_planes']					= 'det är ett ~r~fordon~w~ i vägen!',
+	['no_nil_invoice']					= 'ogiltig ~y~summa',
+	['no_player_nearby']				= 'det finns ingen ~b~spelare~w~ i närheten!',
 }
