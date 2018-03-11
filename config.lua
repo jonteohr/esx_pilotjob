@@ -5,6 +5,7 @@ Config.Locale			= 'sv'
 
 Config.Airports = {
 	LSX = {
+		Airline = true, -- Allow airline pilots to fly and spawn planes here? Not recommended on smaller airstrips..
 		Pos		= { x = -1031.268, y = -2741.703, z = 12.796 },
 		Size	= { x = 1.5, y = 1.5, z = 1.0 },
 		Colour	= { r = 204, g = 204, b = 0 },

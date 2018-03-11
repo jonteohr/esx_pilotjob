@@ -297,7 +297,7 @@ function OpenVehicleSpawner(airport)
 			})
 		end
 	end
-	if PlayerData.job.grade_name == 'airlinepilot' then
+	if PlayerData.job.grade_name == 'airlinepilot' and Config.Airports[airport].Airline then
 		for k,v in pairs(Config.GradeVehicles.airlinepilot) do
 			table.insert(elements, {
 				label = v.label,
