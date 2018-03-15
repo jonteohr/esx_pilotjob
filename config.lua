@@ -1,7 +1,7 @@
 Config					= {}
 Config.DrawDistance		= 100.0
 Config.MaxInService		= -1 -- Set to -1 to disable this
-Config.Locale			= 'sv'
+Config.Locale			= 'en'
 
 Config.Airports = {
 	LSX = {
@@ -18,11 +18,31 @@ Config.Airports = {
 			Display	= 4
 		},
 	},
+	Airstrip = {
+		Airline = false, -- Allow airline pilots to fly and spawn planes here? Not recommended on smaller airstrips..
+		Pos		= { x = 1700.676, y = 3291.739, z = 47.922 },
+		Size	= { x = 1.5, y = 1.5, z = 1.0 },
+		Colour	= { r = 204, g = 204, b = 0 },
+		Marker	= 1,
+		Blips	= {
+			Pos		= { x = 1700.676, y = 3291.739, z = 48.922 },
+			Sprite	= 90,
+			Colour	= 5,
+			Scale	= 1.2,
+			Display	= 4
+		},
+	},
 }
 
 Config.Clothes = {
 	LSX = {
 		Pos		= { x = -1142.651, y = -2703.666, z = 12.957 },
+		Size	= { x = 1.5, y = 1.5, z = 1.0 },
+		Colour	= { r = 204, g = 204, b = 0 },
+		Marker	= 1
+	},
+	Airstrip = {
+		Pos		= { x = 1757.451, y = 3296.943, z = 40.150 },
 		Size	= { x = 1.5, y = 1.5, z = 1.0 },
 		Colour	= { r = 204, g = 204, b = 0 },
 		Marker	= 1
@@ -41,6 +61,21 @@ Config.Vehicles = {
 		},
 		Deleter	= {
 			Pos		= { x = -1359.840, y = -2719.073, z = 12.944 },
+			Colour	= { r = 255, g = 0, b = 0 },
+			Size	= { x = 5.0, y = 5.0, z = 2.0 }
+		},
+	},
+	Airstrip = {
+		Pos		= { x = 1716.331, y = 3280.057, z = 40.087 },
+		Size	= { x = 1.5, y = 1.5, z = 1.0 },
+		Colour	= { r = 204, g = 204, b = 0 },
+		Marker	= 1,
+		SpawnPoint = {
+			Pos		= { x = 1721.433, y = 3270.458, z = 40.310 },
+			Heading	= 119.404
+		},
+		Deleter	= {
+			Pos		= { x = 1731.002, y = 3312.352, z = 40.223 },
 			Colour	= { r = 255, g = 0, b = 0 },
 			Size	= { x = 5.0, y = 5.0, z = 2.0 }
 		},
