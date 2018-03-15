@@ -13,4 +13,5 @@ Locales ['en'] = {
 	['too_many_planes']					= 'there\'s a ~r~vehicle~w~ in the way!',
 	['no_nil_invoice']					= 'invalid ~y~amount',
 	['no_player_nearby']				= 'there are no ~b~players~w~ nearby!',
+	['deleter_hint']					= 'press ~INPUT_CONTEXT~ to ~y~store the ~b~airplane.',
 }
